@@ -3,8 +3,6 @@ const jwt = require('jsonwebtoken')
 const {JWT_SECRET} = require('../../secrets')
 
 function tokenBuilder (user){
-    // console.log(JWT_SECRET)
-    // return 'The awesome token'
     const payload = {
         subject : user.user_id,
         username : user.username,

@@ -1,13 +1,7 @@
 
 const User = require('./auth-model')
 
-
-
-
-
 const checkValidUsername = async (req, res, next) => {
-    // console.log(" checkValidUsername  middleware")
-    // next()
     try{
         const {username} = req.body
         const existUser = await User.findBy({username})
@@ -21,8 +15,6 @@ const checkValidUsername = async (req, res, next) => {
     }
 }
 const checkUsernameExists = async (req, res, next) => {
-    // console.log("checkUsernameExists   middleware")
-    // next()
     try{
         const {username} = req.body
         const existUser = await User.findBy({username})
@@ -37,8 +29,6 @@ const checkUsernameExists = async (req, res, next) => {
     }
 }
 const checkresBody = (req, res, next) => {
-    // console.log("checkresBody   middleware")
-    // next()
     try{
         const {username, password} = req.body
         if(!username || !username.trim() || !password || !password.trim()){
