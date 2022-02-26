@@ -83,9 +83,9 @@ async (req, res, next) => {
        const validPassword = bcrypt.compareSync(req.body.password, req.user.password)
        if(validPassword){
         const token = makeToken(req.user)
-        return  res.status(201).json({ message: `${req.user.username} is back!`, token, subject: req.user.user_id})
+        return  res.status(200).json({ message: `${req.user.username} is back!`, token, subject: req.user.user_id})
        }else{
-        next({ status: 401, message: "Invalid credentials"})
+        next({ status: 404, message: "Invalid credentials"})
        }
 
 });
